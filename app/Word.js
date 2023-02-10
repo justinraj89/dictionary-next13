@@ -1,10 +1,12 @@
 "use client";
 import { useRef, useEffect } from "react";
 import { PlayCircleIcon } from "@heroicons/react/24/outline";
+import Meaning from "./Meaning";
 //===============================
 
-function WordTitle({ word }) {
+function Word({ word }) {
 
+  // Checks if there are phonetics properties returned from API
   const validPhonetics = word.phonetics?.find(
     (phonetics) => phonetics.text && phonetics.audio
   );
@@ -15,16 +17,20 @@ function WordTitle({ word }) {
     audioRef.current = new Audio(validPhonetics?.audio)
   }, [word])
 
-
   const handlePlay = () => {
     audioRef.current.play()
   };
 
+
+
+
+
+  //-------------------------------------------------------------------------
   return (
-    <main className="mt-10 container px-4 lg:px-0">
+    <main className="mt-14 container px-4 lg:px-0">
       <div className="flex justify-between items-center">
         <div>
-          <h1 className="text-5xl lg:text-6xl font-serif">{word.word}</h1>
+          <h1 className="text-4xl lg:text-6xl font-serif font-semibold tracking-wider">{word.word}</h1>
           <p className="text-indigo-500 pt-3 text-xl font-serif">
             {validPhonetics?.text}
           </p>
@@ -40,4 +46,4 @@ function WordTitle({ word }) {
   );
 }
 
-export default WordTitle;
+export default Word;

@@ -2,7 +2,7 @@
 import { useState } from "react";
 //-----------------------------------
 import Search from "./Search";
-import WordTitle from "./WordTitle";
+import Word from "./Word";
 //===============================
 
 export default function Home() {
@@ -12,7 +12,7 @@ export default function Home() {
   return (
     <div>
       <Search setWord={setWord}/>
-      <WordTitle word={word} setWord={setWord}/>
+      <Word word={word} setWord={setWord}/>
     </div>
   );
 }
