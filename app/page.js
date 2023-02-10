@@ -1,10 +1,11 @@
-import Header from "./Header"
-
+import Header from "./Header";
+import Search from "./Search";
 
 export default function Home() {
-
-
   return (
-    <Header/>
-  )
+    <div>
+      <Header />
+      <Search />
+    </div>
+  );
 }
