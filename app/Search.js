@@ -30,7 +30,7 @@ function Search() {
       />
       <div className="sm:mt-0 ml-3">
         <button
-          className="w-full rounded-lg px-5 py-3 bg-gray-500 text-base text-stone-50 font-bold hover:text-active hover:bg-zinc-700 sm:px-10"
+          className="w-full rounded-lg px-5 py-3 bg-gray-500 dark:bg-zinc-800 dark:hover:bg-zinc-700 text-base text-stone-50 font-bold hover:text-active hover:bg-gray-400 sm:px-10"
           type="submit"
         >
           Search

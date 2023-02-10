@@ -21,7 +21,7 @@ function DarkModeButton() {
     <div>
       {currentTheme === "dark" ? (
         <SunIcon
-          className="h-8 w-8 mr-4 cursor-pointer text-yellow-500"
+          className="h-8 w-8 mr-4 cursor-pointer text-gray-500"
           onClick={() => setTheme("light")}
         />
       ) : (
