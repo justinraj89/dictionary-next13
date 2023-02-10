@@ -1,12 +1,16 @@
 'use client'
 import { useState } from "react";
+import fetchSearchWord from "./fetchSearchWord";
 //==================================
 
 function Search() {
 
     const [input, setInput] = useState('')
+    const [word, setWord] = useState('')
     const [isValid, setIsValide] = useState(true)
+    //-------------------------------------------
 
+    //---------------------------------------------
     const handleChange = (e) => {
         setInput(e.target.value)
         if(!input) return
@@ -14,8 +18,10 @@ function Search() {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        console.log('Ayo')
+        fetchSearchWord(input)
     }
+    //----------------------------------------------
+
 
   return (
     <form
@@ -27,6 +33,7 @@ function Search() {
         className="lg:flex lg:w-full w-3/5 rounded-lg px-5 py-3 text-black dark:text-gray-100 font-semibold focus:outline-none"
         placeholder="Search for a word"
         onChange={handleChange}
+        value={input}
       />
       <div className="sm:mt-0 ml-3">
         <button
