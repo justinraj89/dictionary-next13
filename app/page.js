@@ -1,15 +1,18 @@
-import Header from "./Header";
+'use client'
+import { useState } from "react";
+//-----------------------------------
 import Search from "./Search";
+import WordTitle from "./WordTitle";
 //===============================
 
-export default async function Home() {
+export default function Home() {
 
-
-
+  const [word, setWord] = useState('')
+  
   return (
     <div>
-      <Header />
-      <Search />
+      <Search setWord={setWord}/>
+      <WordTitle word={word} setWord={setWord}/>
     </div>
   );
 }

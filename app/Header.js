@@ -1,9 +1,8 @@
 import DarkModeButton from "./DarkModeButton"
 import { BookOpenIcon } from "@heroicons/react/24/outline";
-import {Nanum_Pen_Script} from '@next/font/google'
+//===========================================================
 
 function Header() {
-
 
   return (
     <header className="flex justify-between pt-4">
