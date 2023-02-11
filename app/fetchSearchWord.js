@@ -8,7 +8,7 @@ const fetchSearchWord = async (search) => {
     const wordData = response.data[0];
     return wordData;
   } catch (err) {
-    console.log(err);
+    throw new Error
   }
 };
 

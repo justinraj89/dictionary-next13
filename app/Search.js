@@ -1,33 +1,32 @@
-'use client'
-import { useState } from "react";
+"use client";
+import { useState, useEffect } from "react";
 import fetchSearchWord from "./fetchSearchWord";
 //==================================
 
-function Search({setWord}) {
+function Search({ setWord }) {
+  const [input, setInput] = useState("");
+  //-------------------------------------------
 
-    const [input, setInput] = useState('');
-    //-------------------------------------------
 
+  const handleChange = (e) => {
+    setInput(e.target.value);
+    if (!input) return;
+  };
 
-    const handleChange = (e) => {
-        setInput(e.target.value)
-        if(!input) return
+  const handleSubmit = async (e) => {
+    try {
+      e.preventDefault();
+      const searchedWord = await fetchSearchWord(input);
+      setWord(searchedWord);
+    } catch (err) {
+      console.log(err);
     }
+  };
 
-    const handleSubmit = async(e) => {
-        e.preventDefault()
-        const searchedWord = await fetchSearchWord(input)
-        setWord(searchedWord)
-    }
-
-    //----------------------------------------------
-
+  //----------------------------------------------
 
   return (
-    <form
-      className="mx-auto mt-10 flex justify-center"
-      onSubmit={handleSubmit}
-    >
+    <form className="mx-auto mt-10 flex justify-center" onSubmit={handleSubmit}>
       <input
         type="text"
         className="lg:flex lg:w-full w-3/5 rounded-lg px-5 py-3 text-black dark:text-gray-100 font-semibold focus:outline-none font-serif tracking-widest"
@@ -44,7 +43,7 @@ function Search({setWord}) {
         </button>
       </div>
     </form>
-  )
+  );
 }
 
-export default Search
+export default Search;

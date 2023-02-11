@@ -1,5 +1,6 @@
 'use client'
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import fetchSearchWord from "./fetchSearchWord";
 //-----------------------------------
 import Search from "./Search";
 import Word from "./Word";
@@ -8,11 +9,12 @@ import Word from "./Word";
 export default function Home() {
 
   const [word, setWord] = useState('')
+
   
   return (
     <div>
       <Search setWord={setWord}/>
-      <Word word={word} setWord={setWord}/>
+      {word && <Word word={word}/>}
     </div>
   );
 }

@@ -22,15 +22,16 @@ function Word({ word }) {
   };
 
 
-
-
+console.log(word.meanings[0].partOfSpeech, 'MEANINGS')
+  
 
   //-------------------------------------------------------------------------
+
   return (
     <main className="mt-14 container px-4 lg:px-0">
       <div className="flex justify-between items-center">
         <div>
-          <h1 className="text-4xl lg:text-6xl font-serif font-semibold tracking-wider">{word.word}</h1>
+          <h1 className="text-4xl lg:text-6xl font-serif text-gray-500 dark:text-gray-100 font-semibold tracking-wider">{word.word}</h1>
           <p className="text-indigo-500 pt-3 text-xl font-serif">
             {validPhonetics?.text}
           </p>
@@ -42,6 +43,18 @@ function Word({ word }) {
           />
         )}
       </div>
+      {word ? 
+      <section className="mt-8 tablet:mt-10 text-sans tablet:text-body-m">
+      <div className="flex items-center mb-8 tablet:mb-10">
+        <h2 className="font-bold italic mr-4 tablet:text-heading-m tablet:leading-heading-m text-gray-500 dark:text-gray-100">{word.meanings[0].partOfSpeech}</h2>
+        <hr className="w-full border-gray-2 dark:border-black-4" />
+      </div>
+      </section>
+      :null}
+      
+
+
+
     </main>
   );
 }
