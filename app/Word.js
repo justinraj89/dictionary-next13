@@ -4,7 +4,9 @@ import { PlayCircleIcon } from "@heroicons/react/24/outline";
 
 //===============================
 
-function Word({ word, error }) {
+function Word({ word }) {
+
+
 
   const definitions = word.meanings[0].definitions.map((definition, index) => (
     <li className="mt-4" key={index}>
@@ -42,13 +44,9 @@ function Word({ word, error }) {
 
   //-------------------------------------------------------------------------
 
-  if(error) {
-    return (
-      <div className="text-red-400">Sorry this word is not in our Database. Try another word!</div>
-    )
-  }
 
   return (
+    
     <main className="mt-10 container px-4 lg:px-0">
       <div className="flex justify-between items-center">
         <div>

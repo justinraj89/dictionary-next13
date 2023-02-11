@@ -8,7 +8,7 @@ import Word from "./Word";
 
 export default function Home() {
   // STATE
-  const [word, setWord] = useState("");
+  const [word, setWord] = useState(null);
   const [error, setError] = useState(false);
 
   // API CALL
@@ -17,6 +17,7 @@ export default function Home() {
     try {
       const response = await axios.get(url);
       const wordData = response.data[0];
+      setError(false)
       return wordData;
     } catch (err) {
       setError(true);
@@ -24,13 +25,13 @@ export default function Home() {
     }
   };
 
-
+  console.log(error, '<---- ERROR STATUS')
 
   //================================================================
   return (
     <div>
-      <Search setWord={setWord} fetchSearchWord={fetchSearchWord} />
-      {word && <Word word={word} error={error} />}
+      <Search setWord={setWord} fetchSearchWord={fetchSearchWord} error={error} setError={setError} />
+      {word &&  <Word word={word} />}
     </div>
   );
 }
