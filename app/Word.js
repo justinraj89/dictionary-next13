@@ -1,7 +1,7 @@
 "use client";
 import { useRef, useEffect } from "react";
 import { PlayCircleIcon } from "@heroicons/react/24/outline";
-import Meaning from "./Meaning";
+
 //===============================
 
 function Word({ word }) {
@@ -12,6 +12,16 @@ function Word({ word }) {
       {definition.example && <p className="text-gray-500 mt-3 font-serif font-semibold">Example: {definition.example}</p>}
     </li>
   ))
+
+  const synonymsAPI = word.meanings[0].synonyms.map((synonym,index) => (
+    <li className="mt-4" key={index}>
+      <p className="font-serif text-gray-500 dark:text-gray-100">{synonym}</p>
+    </li>
+  ))
+
+  console.log(word.meanings[0].synonyms, 'synonyms')
+
+ 
 
   // Checks if there are phonetics properties returned from API
   const validPhonetics = word.phonetics?.find(
@@ -27,8 +37,6 @@ function Word({ word }) {
   const handlePlay = () => {
     audioRef.current.play()
   };
-
-  console.log(word)
 
   
 
@@ -56,8 +64,11 @@ function Word({ word }) {
         <h2 className="font-bold tracking-wide italic mr-4 tablet:text-heading-m tablet:leading-heading-m text-gray-500 dark:text-gray-100">{word.meanings[0].partOfSpeech}</h2>
         <hr className="w-full" />
       </div>
-      <p className="text-gray-500 dark:text-gray-100 font-serif text-lg">Definition</p>
+      <p className="text-gray-500 dark:text-gray-100 font-serif text-lg font-bold">Definition</p>
       <ul className="list-disc mx-4 mt-4 marker:text-indigo-500 marker:text-[15px]">{definitions}</ul>
+      <hr className="w-full mt-4" />
+      <p className="text-gray-500 dark:text-gray-100 font-serif text-lg font-bold mt-4">Synonym's</p>
+      <ul className="list-disc mx-4 mt-4 marker:text-indigo-500 marker:text-[15px]">{synonymsAPI}</ul>
       </section>
       :null}
       
