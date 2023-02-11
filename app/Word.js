@@ -4,10 +4,11 @@ import { PlayCircleIcon } from "@heroicons/react/24/outline";
 
 //===============================
 
-function Word({ word }) {
+function Word({ word, error }) {
+
   const definitions = word.meanings[0].definitions.map((definition, index) => (
     <li className="mt-4" key={index}>
-      <p className="font-serif text-gray-500 dark:text-gray-100">
+      <p className="font-serif text-gray-500 dark:text-gray-100 tracking-wide">
         {definition.definition}
       </p>
       {definition.example && (
@@ -20,7 +21,7 @@ function Word({ word }) {
 
   const synonymsAPI = word.meanings[0].synonyms.map((synonym, index) => (
     <li className="mt-4" key={index}>
-      <p className="font-serif text-gray-500 dark:text-gray-100">{synonym}</p>
+      <p className="font-serif text-gray-500 dark:text-gray-100 tracking-wide">{synonym}</p>
     </li>
   ));
 
@@ -41,8 +42,14 @@ function Word({ word }) {
 
   //-------------------------------------------------------------------------
 
+  if(error) {
+    return (
+      <div className="text-red-400">Error</div>
+    )
+  }
+
   return (
-    <main className="mt-14 container px-4 lg:px-0">
+    <main className="mt-10 container px-4 lg:px-0">
       <div className="flex justify-between items-center">
         <div>
           <h1 className="text-4xl lg:text-5xl font-serif text-gray-500 dark:text-gray-100 font-semibold tracking-wider">
