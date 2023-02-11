@@ -5,6 +5,7 @@ import { PlayCircleIcon } from "@heroicons/react/24/outline";
 //===============================
 
 function Word({ word }) {
+  
   const definitions = word.meanings[0].definitions.map((definition, index) => (
     <li className="mt-4" key={index}>
       <p className="font-serif text-gray-500 dark:text-gray-100 tracking-wide">

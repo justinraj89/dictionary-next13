@@ -1,6 +1,6 @@
 # Dictionary Application developed using Next JS and Tailwind CSS
 
-### Link to deployed Application [here](https://dictionary-nextjs.herokuapp.com/)
+<!-- ### Link to deployed Application [here](https://dictionary-nextjs.herokuapp.com/) -->
 
 
 ## Screenshots

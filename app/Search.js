@@ -14,6 +14,7 @@ function Search({ setWord, fetchSearchWord, error}) {
 
   const handleSubmit = async (e) => {
     try {
+      console.log('click')
       e.preventDefault();
       const searchedWord = await fetchSearchWord(input);
       setWord(searchedWord);
