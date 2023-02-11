@@ -3,8 +3,7 @@ import { useState } from "react";
 
 //==================================
 
-function Search({ setWord, fetchSearchWord, error, setError }) {
-  console.log(error, "ERROR STATUS SEARCH");
+function Search({ setWord, fetchSearchWord, error}) {
   //State
   const [input, setInput] = useState("");
 

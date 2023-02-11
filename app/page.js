@@ -17,7 +17,7 @@ export default function Home() {
     try {
       const response = await axios.get(url);
       const wordData = response.data[0];
-      setError(false)
+      setError(false);
       return wordData;
     } catch (err) {
       setError(true);
@@ -25,13 +25,15 @@ export default function Home() {
     }
   };
 
-  console.log(error, '<---- ERROR STATUS')
-
   //================================================================
   return (
     <div>
-      <Search setWord={setWord} fetchSearchWord={fetchSearchWord} error={error} setError={setError} />
-      {word &&  <Word word={word} />}
+      <Search
+        setWord={setWord}
+        fetchSearchWord={fetchSearchWord}
+        error={error}
+      />
+      {word && <Word word={word} />}
     </div>
   );
 }
