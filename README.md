@@ -18,3 +18,4 @@
 - Next JS (13)
 - Tailwind CSS
 - DictionaryDev API
+- Next/themes (darkmode)
