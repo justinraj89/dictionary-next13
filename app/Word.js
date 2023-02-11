@@ -44,7 +44,7 @@ function Word({ word, error }) {
 
   if(error) {
     return (
-      <div className="text-red-400">Error</div>
+      <div className="text-red-400">Sorry this word is not in our Database. Try another word!</div>
     )
   }
 
