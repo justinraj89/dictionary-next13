@@ -6,6 +6,13 @@ import Meaning from "./Meaning";
 
 function Word({ word }) {
 
+  const definitions = word.meanings[0].definitions.map((definition,index) => (
+    <li className="mt-4" key={index}>
+      <p className="font-serif text-gray-500 dark:text-gray-100">{definition.definition}</p>
+      {definition.example && <p className="text-gray-500 mt-3 font-serif font-semibold">Example: {definition.example}</p>}
+    </li>
+  ))
+
   // Checks if there are phonetics properties returned from API
   const validPhonetics = word.phonetics?.find(
     (phonetics) => phonetics.text && phonetics.audio
@@ -21,8 +28,8 @@ function Word({ word }) {
     audioRef.current.play()
   };
 
+  console.log(word)
 
-console.log(word.meanings[0].partOfSpeech, 'MEANINGS')
   
 
   //-------------------------------------------------------------------------
@@ -46,9 +53,11 @@ console.log(word.meanings[0].partOfSpeech, 'MEANINGS')
       {word ? 
       <section className="mt-8 tablet:mt-10 text-sans tablet:text-body-m">
       <div className="flex items-center mb-8 tablet:mb-10">
-        <h2 className="font-bold italic mr-4 tablet:text-heading-m tablet:leading-heading-m text-gray-500 dark:text-gray-100">{word.meanings[0].partOfSpeech}</h2>
-        <hr className="w-full border-gray-2 dark:border-black-4" />
+        <h2 className="font-bold tracking-wide italic mr-4 tablet:text-heading-m tablet:leading-heading-m text-gray-500 dark:text-gray-100">{word.meanings[0].partOfSpeech}</h2>
+        <hr className="w-full" />
       </div>
+      <p className="text-gray-500 dark:text-gray-100 font-serif text-lg">Definition</p>
+      <ul className="list-disc mx-4 mt-4 marker:text-indigo-500 marker:text-[15px]">{definitions}</ul>
       </section>
       :null}
       
