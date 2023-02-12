@@ -1,9 +1,9 @@
 "use client";
 import { useState } from "react";
-
+import API from "./api";
 //==================================
 
-function Search({ setWord, fetchSearchWord, error}) {
+function Search({ setWord, error}) {
   //State
   const [input, setInput] = useState("");
 
@@ -14,9 +14,8 @@ function Search({ setWord, fetchSearchWord, error}) {
 
   const handleSubmit = async (e) => {
     try {
-      console.log('click')
       e.preventDefault();
-      const searchedWord = await fetchSearchWord(input);
+      const searchedWord = await API.fetchSearchWord(input);
       setWord(searchedWord);
       setInput("");
     } catch (err) {
