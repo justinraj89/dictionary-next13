@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
 //-----------------------------------
 import Search from "./Search";
@@ -24,6 +24,17 @@ export default function Home() {
       console.log(err);
     }
   };
+
+  const getDefaultWord = async () => {
+    const defaultWord = "dictionary";
+    const wordData = await fetchSearchWord(defaultWord);
+    setWord(wordData);
+  };
+
+  useEffect(() => {
+    getDefaultWord();
+  }, []);
+
 
   //================================================================
   return (

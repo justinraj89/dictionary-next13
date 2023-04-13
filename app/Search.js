@@ -23,6 +23,8 @@ function Search({ setWord, fetchSearchWord, error}) {
       console.log(err);
     }
   };
+
+
   //----------------------------------------------
 
   return (
