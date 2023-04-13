@@ -58,7 +58,7 @@ function Word({ word }) {
         {validPhonetics?.audio && (
           <PlayCircleIcon
             onClick={handlePlay}
-            className="h-20 w-20 text-indigo-500 hover:cursor-pointer"
+            className="h-20 w-20 text-indigo-500 hover:text-indigo-400 hover:cursor-pointer lg:transition lg:ease-in-out  lg:hover:scale-105 lg:duration-300"
           />
         )}
       </div>
