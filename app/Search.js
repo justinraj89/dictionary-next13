@@ -35,7 +35,7 @@ function Search({ setWord, fetchSearchWord, error}) {
       >
         <input
           type="text"
-          className="lg:flex lg:w-full w-3/5 rounded-lg px-5 py-3 text-black dark:text-gray-100 font-semibold focus:outline-none font-serif tracking-widest"
+          className="lg:flex lg:w-full w-3/5 rounded-lg px-5 py-3 text-gray-600 dark:text-gray-100 font-semibold focus:outline-none font-serif tracking-widest"
           placeholder="Search for a word"
           onChange={handleChange}
           value={input}
