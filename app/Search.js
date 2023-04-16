@@ -51,7 +51,7 @@ function Search({ setWord, fetchSearchWord, error}) {
         </div>
       </form>
       {error ? (
-        <div className="block text-xl text-red-400 font-bold pt-4 flex justify-center font-serif container px-4 text-center">
+        <div className="text-xl text-red-400 font-bold pt-8 flex justify-center font-serif container px-4 text-center">
           Sorry that word is not in our database ☹️ please try another word.
         </div>
       ) : null}
